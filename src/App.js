@@ -1,6 +1,6 @@
 
 import {useState, useEffect} from "react";
-
+import PropTypes from "prop-types";
 
 
 function App() {
@@ -30,3 +30,9 @@ function App() {
 }
 
 export default App;
+Movie.propTypes = {
+  coverImg: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  generes: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
