@@ -1,3 +1,58 @@
+# Branch
+
+## bitcoin(no Typescript)
+
+## movie(no Typescript)
+
+## typescript(Typescript enabled)
+### 리액트 Project에 TS추가 방법(250416)
+
+createRoot from "react-dom/client" 을 사용합니다.
+
+
+1. npm install --save typescript @typed/node @types/react @types/react-dom @types/jest
+
+2. Rename App.js, index.js -> App.tsx, index.tsx 
+
+3. npx tsc --init -> tsconfig.json 생성후, tsconfig.json 파일의 
+   compilerOption에서 "jsx":"react-jsx" 추가
+   ```json
+    {
+        "compilerOptions":{
+            ...
+            "jsx":"react-jsx"
+        }
+    }
+    ```
+4. indexc.tsx 소스 코드를 다음과 같이 수정.
+```javascript
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+);
+```
+
+bitcoin, movie branch에서 사용한 index.js 코드는
+```javascript
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+    <App />
+);
+```
+typescript가 이해할 수 있는 버전으로 update.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
